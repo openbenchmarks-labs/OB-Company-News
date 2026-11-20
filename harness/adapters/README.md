@@ -20,7 +20,6 @@ Web search tools take the question as written:
 News indexes look up a company's events:
 
 - `autobound.py` — Autobound news signals for a company domain.
-- `datahyena.py` — Datahyena company timeline.
 - `predictleads.py` — PredictLeads news events. A model first picks which event types to ask for.
 - `seltz.py` — Seltz news search.
 

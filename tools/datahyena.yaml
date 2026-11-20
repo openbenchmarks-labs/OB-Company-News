@@ -1,7 +1,0 @@
-tool: datahyena
-setups:
-  datahyena:
-    class: main
-    pricing:
-      list_usd: 0.050
-      basis: list

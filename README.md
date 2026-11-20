@@ -1,6 +1,6 @@
 # OB-Company-News
 
-Open, independent benchmark of APIs for company news: web search APIs and dedicated news indexes, measured on how accurately they surface recent, verified company news for AI agents, such as executive hires, acquisitions, product launches and funding. Every tool answers the same questions with one query, no query rewrite and no page fetch, graded by the same judge. Tools measured: Brave, Context, Exa, Firecrawl, Linkup, Nimble, Parallel, Perplexity, SERP, Tavily, TinyFish, You.com, Autobound, DataHyena, PredictLeads and Seltz.
+Open, independent benchmark of APIs for company news: web search APIs and dedicated news indexes, measured on how accurately they surface recent, verified company news for AI agents, such as executive hires, acquisitions, product launches and funding. Every tool answers the same questions with one query, no query rewrite and no page fetch, graded by the same judge. Tools measured: Brave, Context, Exa, Firecrawl, Linkup, Nimble, Parallel, Perplexity, SERP, Tavily, TinyFish, You.com, Autobound, PredictLeads and Seltz.
 
 **Live leaderboard:** [openbenchmarks.com/company-news](https://openbenchmarks.com/company-news) · **Public dataset:** [`openbenchmarks/OB-News-Websearch`](https://huggingface.co/datasets/openbenchmarks/OB-News-Websearch)
 
@@ -16,10 +16,10 @@ General web search APIs and dedicated company-news indexes are evaluated on fact
 
 ## Tools evaluated
 
-16 tools configured in [`tools/`](tools/README.md):
+15 tools configured in [`tools/`](tools/README.md):
 
 - **Web search APIs:** `brave`, `context`, `exa`, `firecrawl`, `linkup`, `nimble`, `parallel`, `perplexity`, `serp`, `tavily`, `tinyfish`, `you`
-- **News indexes:** `autobound`, `datahyena`, `predictleads`, `seltz`
+- **News indexes:** `autobound`, `predictleads`, `seltz`
 
 ## Dataset
 
@@ -34,7 +34,7 @@ See [`data/README.md`](data/README.md) for the complete JSON schema.
 
 - [`data/`](data/README.md): Question file schema and dataset instructions (no question files committed).
 - [`harness/`](harness/README.md): Benchmark CLI (`list-providers`, `run`, `evaluate`, `build-snapshot`, `verify`), orchestration, and tool adapters.
-- [`tools/`](tools/README.md): One `<tool>.yaml` config per search API or news index, with setups and pricing (16 tools).
+- [`tools/`](tools/README.md): One `<tool>.yaml` config per search API or news index, with setups and pricing (15 tools).
 - [`judge/`](judge/README.md): Answer extraction, ground-truth grading, and board aggregation.
 - [`benchmark.yaml`](benchmark.yaml): Benchmark contract, scope, and refresh cadence.
 - [`AGENTS.md`](AGENTS.md): Entry guide for coding agents.

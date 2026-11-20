@@ -23,7 +23,6 @@ TOOLS = (
     "tinyfish",
     "firecrawl",
     "predictleads",
-    "datahyena",
     "autobound",
     "seltz",
     "tavily",
