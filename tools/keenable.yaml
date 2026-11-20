@@ -1,0 +1,8 @@
+tool: keenable
+setups:
+  keenable:
+    class: main
+    pricing:
+      # Keenable pay as you go: $4 / 1,000 requests, one credit per search. https://keenable.ai/pricing (2026-11-20)
+      list_usd: 0.004
+      basis: list

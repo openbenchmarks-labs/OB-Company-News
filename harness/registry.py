@@ -14,6 +14,7 @@ TOOLS_DIR = Path(__file__).resolve().parent.parent / "tools"
 # One entry per tools/<tool>.yaml and harness/adapters/<tool>.py; this order is the run and board order.
 TOOLS = (
     "context",
+    "keenable",
     "nimble",
     "parallel",
     "exa",
