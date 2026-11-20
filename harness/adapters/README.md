@@ -13,6 +13,7 @@ Web search tools take the question as written:
 - `parallel.py` — Parallel search.
 - `perplexity.py` — Perplexity search.
 - `serp.py` — Google results through a RapidAPI search service.
+- `string.py` — String web access search, using Google results.
 - `tavily.py` — Tavily search.
 - `tinyfish.py` — TinyFish search.
 - `you.py` — You.com search with highlights.
