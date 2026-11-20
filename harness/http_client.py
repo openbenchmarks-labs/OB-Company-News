@@ -43,6 +43,8 @@ def request_json(
 
     for index in range(max_attempts):
         attempt_started = time.perf_counter()
+        # Top-level audit fields describe the last attempt; earlier attempts live in `attempts`.
+        status, payload, ok = None, None, False
         try:
             response = requests.request(
                 method, url, headers=headers, params=params, json=body, timeout=timeout
