@@ -1,0 +1,8 @@
+tool: hydrafetch
+setups:
+  hydrafetch:
+    class: main
+    pricing:
+      # Hydrafetch Build: $19 / 15,000 credits; 1 credit / search. https://hydrafetch.com/pricing/ (2026-11-20)
+      list_usd: 0.00127
+      basis: list

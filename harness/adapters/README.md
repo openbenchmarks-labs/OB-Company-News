@@ -8,6 +8,7 @@ Web search tools take the question as written:
 - `context.py` — Context Developer search with highlights.
 - `exa.py` — Exa search with highlights.
 - `firecrawl.py` — Firecrawl search.
+- `hydrafetch.py` — Hydrafetch web search.
 - `linkup.py` — Linkup search results.
 - `nimble.py` — Nimble search.
 - `parallel.py` — Parallel search.
