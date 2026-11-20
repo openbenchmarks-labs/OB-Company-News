@@ -26,6 +26,7 @@ TOOLS = (
     "datahyena",
     "autobound",
     "seltz",
+    "extruct_tables",
     "tavily",
     "serp",
     "linkup",

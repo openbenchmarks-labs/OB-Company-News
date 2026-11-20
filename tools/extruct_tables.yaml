@@ -1,0 +1,9 @@
+tool: extruct_tables
+setups:
+  extruct_tables:
+    class: comparison
+    pricing:
+      # Extruct Pro: $149 / 2,000 credits; one AI table cell is 1 credit.
+      # AI tables are not on Starter. https://www.extruct.ai/pricing/ (2026-11-20)
+      list_usd: 0.0745
+      basis: list
