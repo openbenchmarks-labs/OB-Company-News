@@ -23,6 +23,7 @@ def judge_accuracy(case: Case, extracted: ExtractVerdict) -> tuple[AccuracyVerdi
         {"question": case.question, "expected_answer": case.expected_answer,
          "cells": [cell.model_dump() for cell in case.cells], "answer": extracted.answer},
         max_tokens=1024,
+        key="correct",
     )
     return AccuracyVerdict.model_validate(parsed), tokens
 
@@ -39,6 +40,7 @@ def judge_recall(case: Case, hits: list[Hit]) -> tuple[RecallVerdict, dict[str, 
         {"question": case.question, "expected_answer": case.expected_answer,
          "cells": [cell.model_dump() for cell in case.cells], "snippets": snippets},
         max_tokens=2048,
+        key="bearing_ranks",
     )
     verdict = RecallVerdict.model_validate(parsed)
     verdict.bearing_ranks = [rank for rank in verdict.bearing_ranks if rank <= len(snippets)]
