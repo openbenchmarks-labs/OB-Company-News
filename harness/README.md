@@ -33,3 +33,18 @@ Runs the benchmark and calls each tool. No grading code lives here.
 - `manifest.json` — A hash of every file, so anyone can check nothing changed.
 
 API keys and similar headers are replaced with `***REDACTED***` before anything is saved. Response bodies are kept so the scoring can be checked. Read each tool's terms and the output before you publish a run.
+
+## Reusing a run directory
+
+Every `run`, with or without `--resume`, checks the dataset's SHA-256 against
+`run-plan.json` before updating a nonempty output directory or calling a tool or
+judge. Use a fresh `--output` directory if the dataset bytes changed, including
+formatting-only edits, or if the saved plan or hash is missing or invalid.
+
+You can move a byte-identical dataset to another path, increase `--limit`, or
+add setups and still reuse completed cells with `--resume`. Deferred
+`evaluate` reads the saved search-only cells and can run without the dataset file.
+
+Each output directory supports one writer at a time. Run `run`, `evaluate`,
+and `build-snapshot` sequentially when they target the same directory. Use
+separate output directories for concurrent runs.
