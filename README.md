@@ -2,7 +2,7 @@
 
 Open, independent benchmark of APIs for company news: web search APIs and dedicated news indexes, measured on how accurately they surface recent, verified company news for AI agents, such as executive hires, acquisitions, product launches and funding. Every tool answers the same questions with one query, no query rewrite and no page fetch, graded by the same judge. Tools measured: Brave, Context, Exa, Firecrawl, Linkup, Nimble, Parallel, Perplexity, SERP, Tavily, TinyFish, You.com, Autobound, DataHyena, PredictLeads and Seltz.
 
-**Live leaderboard:** [openbenchmarks.com/company-news](https://openbenchmarks.com/company-news) · **Public dataset:** [`openbenchmarks/OB-News-Websearch`](https://huggingface.co/datasets/openbenchmarks/OB-News-Websearch)
+**Live leaderboard:** [openbenchmarks.com/company-news](https://openbenchmarks.com/company-news) · **Public dataset:** [`openbenchmarks/OB-Company-News`](https://huggingface.co/datasets/openbenchmarks/OB-Company-News)
 
 Published and maintained by **[OpenBenchmarks Labs](https://openbenchmarks.com)**.
 
@@ -25,7 +25,7 @@ General web search APIs and dedicated company-news indexes are evaluated on fact
 
 No question files are committed to this repository.
 
-- **Public split:** Published on Hugging Face at [`openbenchmarks/OB-News-Websearch`](https://huggingface.co/datasets/openbenchmarks/OB-News-Websearch).
+- **Public split:** Published on Hugging Face at [`openbenchmarks/OB-Company-News`](https://huggingface.co/datasets/openbenchmarks/OB-Company-News).
 - **Held-out split:** The private evaluation set used for the published leaderboard stays private so tools cannot train on it. Pass your dataset file with `--dataset`.
 
 See [`data/README.md`](data/README.md) for the complete JSON schema.
@@ -65,14 +65,14 @@ cp .env.example .env
 
 - [Live leaderboard](https://openbenchmarks.com/company-news)
 - [Best company news API](https://openbenchmarks.com/company-news/best-company-news-api)
-- [Hugging Face dataset](https://huggingface.co/datasets/openbenchmarks/OB-News-Websearch)
+- [Hugging Face dataset](https://huggingface.co/datasets/openbenchmarks/OB-Company-News)
 - [`llms.txt`](https://openbenchmarks.com/llms.txt)
 
 ## Related benchmarks
 
-- [OB-Code-Websearch](https://github.com/openbenchmarks-labs/OB-Code-Websearch): Web search APIs for coding agents ([leaderboard](https://openbenchmarks.com/web-search-for-coding-agents))
+- [OB-Code-WebSearch](https://github.com/openbenchmarks-labs/OB-Code-WebSearch): Web search APIs for coding agents ([leaderboard](https://openbenchmarks.com/web-search-for-coding-agents))
 - [OB-Company-Search-Multi-Turn](https://github.com/openbenchmarks-labs/OB-Company-Search-Multi-Turn): Multi-hop company research agents ([leaderboard](https://openbenchmarks.com/multi-turn-company-search))
-- [OB-Company-Funding](https://github.com/openbenchmarks-labs/OB-Company-Funding): Latest funding round accuracy and freshness ([leaderboard](https://openbenchmarks.com/company-funding))
+- [OB-Company-Enrichment-Funding](https://github.com/openbenchmarks-labs/OB-Company-Enrichment-Funding): Latest funding round accuracy and freshness ([leaderboard](https://openbenchmarks.com/company-funding))
 - [All OpenBenchmarks leaderboards](https://openbenchmarks.com)
 
 ## License
