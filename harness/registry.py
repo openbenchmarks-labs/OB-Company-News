@@ -29,6 +29,7 @@ TOOLS = (
     "tavily",
     "serp",
     "linkup",
+    "string",
 )
 
 
