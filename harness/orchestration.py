@@ -131,9 +131,21 @@ def evaluate_run(run_dir: Path, *, workers: int = 4) -> None:
         cell["evaluation"] = evaluate_search_result(case, result)
         return path, cell
 
+    failed: list[str] = []
     with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
-        for path, cell in [future.result() for future in as_completed([pool.submit(evaluate, path) for path in paths])]:
+        futures = {pool.submit(evaluate, path): path for path in paths}
+        for future in as_completed(futures):
+            try:
+                path, cell = future.result()
+            except Exception as exc:  # noqa: BLE001 - keep finished cells; the rest are retried on rerun
+                failed.append(f"{futures[future].relative_to(run_dir)}: {type(exc).__name__}: {exc}")
+                continue
             write_json(path, cell)
+    if failed:
+        raise RuntimeError(
+            f"{len(failed)} of {len(paths)} cell(s) could not be evaluated; finished cells are saved and "
+            "rerunning evaluation retries only these:\n" + "\n".join(sorted(failed))
+        )
     build_snapshot(run_dir)
 
 
