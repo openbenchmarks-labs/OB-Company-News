@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
@@ -25,6 +26,22 @@ def _cell_path(run_dir: Path, case_id: str, endpoint: str) -> Path:
 
 def _audit_path(run_dir: Path, case_id: str, endpoint: str) -> Path:
     return run_dir / "audit" / case_id / f"{endpoint}.json"
+
+
+def _validate_run_dataset(run_dir: Path, dataset_sha256: str) -> None:
+    plan_path = run_dir / "run-plan.json"
+    recovery = "Use a new --output directory."
+    try:
+        if not run_dir.exists() or not any(run_dir.iterdir()):
+            return
+        plan = read_json(plan_path)
+    except (OSError, ValueError, RecursionError) as exc:
+        raise ValueError(f"The run plan {plan_path} is missing or unreadable. {recovery}") from exc
+
+    if not isinstance(plan, dict) or plan.get("dataset_sha256") != dataset_sha256:
+        raise ValueError(
+            f"The dataset SHA-256 in {plan_path} is missing or does not match the supplied dataset. {recovery}"
+        )
 
 
 def _cell(case: Case, result: SearchResult, evaluation: dict[str, Any] | None, audit_path: Path) -> dict[str, Any]:
@@ -59,18 +76,21 @@ def run_benchmark(
     search_only: bool = False,
     resume: bool = False,
 ) -> Path:
-    load_dotenv(".env")
     run_dir = output or Path("runs") / _stamp()
-    cases = [Case.from_record(row) for row in load_cases(dataset)]
+    dataset_bytes = dataset.read_bytes()
+    dataset_sha256 = hashlib.sha256(dataset_bytes).hexdigest()
+    _validate_run_dataset(run_dir, dataset_sha256)
+    cases = [Case.from_record(row) for row in load_cases(dataset_bytes)]
     if limit:
         cases = cases[:limit]
+    load_dotenv(".env")
     adapters = selected_adapters(endpoints)
     for adapter in adapters:
         adapter.validate_credentials()
     run_dir.mkdir(parents=True, exist_ok=True)
     write_json(run_dir / "run-plan.json", {
         "dataset": str(dataset.resolve()),
-        "dataset_sha256": sha256(dataset),
+        "dataset_sha256": dataset_sha256,
         "case_count": len(cases),
         "endpoints": [adapter.name for adapter in adapters],
         "case_concurrency": 1,

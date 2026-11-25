@@ -33,8 +33,9 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def load_cases(path: Path) -> list[dict[str, Any]]:
-    payload = read_json(path)
+def load_cases(path: Path | bytes) -> list[dict[str, Any]]:
+    """Load question records from a path or a snapshot of the dataset bytes."""
+    payload = json.loads(path) if isinstance(path, bytes) else read_json(path)
     if isinstance(payload, list):
         return payload
     for key in ("cases", "samples", "items"):
