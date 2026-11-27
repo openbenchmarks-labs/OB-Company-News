@@ -14,6 +14,7 @@ Web search tools take the question as written:
 - `parallel.py` — Parallel search. The extract model writes one objective and 2-3 keyword queries per question, shared across modes.
 - `perplexity.py` — Perplexity search.
 - `serp.py` — Google results through a RapidAPI search service.
+- `specstream.py`: SpecStream web search, with one best passage per result (`specstream`), up to four passages per result (`specstream_passages`), or the fast tier (`specstream_fast`).
 - `tavily.py` — Tavily search.
 - `tinyfish.py` — TinyFish search.
 - `seltz.py` — Seltz search, web scope: full content (`seltz_web`) or the highest-scoring passages (`seltz_web_snippets`).

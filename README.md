@@ -1,6 +1,6 @@
 # OB-Company-News
 
-Open, independent benchmark of APIs for company news: web search APIs and dedicated news indexes, measured on how accurately they surface recent, verified company news for AI agents, such as executive hires, acquisitions, product launches and funding. Every search tool answers the same questions with one request and no page fetch, graded by the same judge. Tools measured: Brave, Context, Exa, Firecrawl, Keenable, Linkup, Nimble, Parallel, Perplexity, SERP, Tavily, TinyFish, You.com and Seltz.
+Open, independent benchmark of APIs for company news: web search APIs and dedicated news indexes, measured on how accurately they surface recent, verified company news for AI agents, such as executive hires, acquisitions, product launches and funding. Every search tool answers the same questions with one request and no page fetch, graded by the same judge. Tools measured: Brave, Context, Exa, Firecrawl, Keenable, Linkup, Nimble, Parallel, Perplexity, SERP, SpecStream, Tavily, TinyFish, You.com and Seltz.
 
 **Live leaderboard:** [openbenchmarks.com/company-news](https://openbenchmarks.com/company-news) · **Public dataset:** [`openbenchmarks/OB-News-Websearch`](https://huggingface.co/datasets/openbenchmarks/OB-News-Websearch)
 
@@ -17,9 +17,9 @@ General web search APIs and dedicated company-news indexes are evaluated on fact
 
 ## Tools evaluated
 
-14 tools configured in [`tools/`](tools/README.md), plus the `model_only` baseline:
+15 tools configured in [`tools/`](tools/README.md), plus the `model_only` baseline:
 
-- **Web search APIs:** `brave`, `context`, `exa`, `firecrawl`, `keenable`, `linkup`, `nimble`, `parallel`, `perplexity`, `serp`, `tavily`, `tinyfish`, `you`, and `seltz` (web scope)
+- **Web search APIs:** `brave`, `context`, `exa`, `firecrawl`, `keenable`, `linkup`, `nimble`, `parallel`, `perplexity`, `serp`, `specstream`, `tavily`, `tinyfish`, `you`, and `seltz` (web scope)
 - **Agents (run when named):** `firecrawl_agent_apollo`
 
 ## Dataset
@@ -35,7 +35,7 @@ See [`data/README.md`](data/README.md) for the complete JSON schema.
 
 - [`data/`](data/README.md): Question file schema and dataset instructions (no question files committed).
 - [`harness/`](harness/README.md): Benchmark CLI (`list-providers`, `run`, `evaluate`, `build-snapshot`, `verify`), orchestration, and tool adapters.
-- [`tools/`](tools/README.md): One `<tool>.yaml` config per search API or news index, with setups and pricing (14 tools and the `model_only` baseline).
+- [`tools/`](tools/README.md): One `<tool>.yaml` config per search API or news index, with setups and pricing (15 tools and the `model_only` baseline).
 - [`judge/`](judge/README.md): Answer extraction, ground-truth grading, and board aggregation.
 - [`benchmark.yaml`](benchmark.yaml): Benchmark contract, scope, and refresh cadence.
 - [`AGENTS.md`](AGENTS.md): Entry guide for coding agents.

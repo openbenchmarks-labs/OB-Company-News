@@ -27,6 +27,7 @@ TOOLS = (
     "serp",
     "linkup",
     "keenable",
+    "specstream",
     "model_only",
 )
 

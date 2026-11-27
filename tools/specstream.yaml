@@ -1,0 +1,24 @@
+tool: specstream
+setups:
+  # $5 / 1,000 requests of up to 10 results; $1 / 1,000 on the fast tier. https://specstream.ai/pricing (2026-11-26)
+  specstream:
+    class: main
+    settings:
+      mode: compact
+    pricing:
+      list_usd: 0.005
+      basis: list
+  specstream_passages:
+    class: main
+    settings:
+      mode: passages
+    pricing:
+      list_usd: 0.005
+      basis: list
+  specstream_fast:
+    class: main
+    settings:
+      mode: fast
+    pricing:
+      list_usd: 0.001
+      basis: list
